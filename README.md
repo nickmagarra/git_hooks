@@ -34,4 +34,8 @@ To use hooks, place it to **.git/hooks** directory inside your local cloned repo
 ### Note
 On Windows you can receive an error: <code>error: cannot spawn .git/hooks/prepare-commit-msg: No such file or directory</code>
 
-To fix that configure Git to lookup hooks inside repo folder: <code>git config --global core.hooksPath '.git/hooks</code>
+To fix that configure Git to lookup hooks in common user root folder: 
+
+<code>mkdir -p ~/.git/hooks</code>
+<code>cp -r .git/hooks/prepare-commit-msg ~/.git/hooks</code>
+<code>git config --global core.hooksPath '~/.git/hooks'</code>
