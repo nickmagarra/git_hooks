@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import re
 import sys
 from subprocess import check_output
@@ -34,8 +32,8 @@ with open(commit_msg_filepath, "r+") as f:
         new_message = (f'[{branch}][Fix] {new_version} {commit_msg.replace("ff", "", 1).strip()}')
     else:
         new_version = f'{str(release)}.{str(update)}.{str(fix + 1)}'
-        new_message = (f'[Draft] {new_version} {commit_msg.strip()} ')
-
+        new_message = (f'{new_version} {commit_msg.strip()} ')
+        
     if len(new_message) > 0:
         f.truncate(0)
         f.seek(0)

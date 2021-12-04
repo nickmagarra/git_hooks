@@ -1,0 +1,4 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+python prepare-commit-msg "$COMMIT_MSG_FILE"
