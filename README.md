@@ -12,7 +12,7 @@ What hook do:
 - Generates incremented version number based on detected triggers (version based on template: **X.Y.Z** where **X** for release, **Y** for update, **Z** for fix). In drafts 4-th number will be added
 - If trigger detected, hook generates brand new commit message with template:  
 
-```{Branch name} {Type of commit by trigger} {new version number of commit} {Commit message by user input}```
+```[Branch name][Type of commit by trigger] [New version number of commit] [User commit message]```
 
 - If no trigger detected, hook adds [Draft] prefix and version numder in front of user's text
 
