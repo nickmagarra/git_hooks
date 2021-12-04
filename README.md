@@ -36,6 +36,8 @@ On Windows you can receive an error: <code>error: cannot spawn .git/hooks/prepar
 
 To fix that configure Git to lookup hooks in common user root folder: 
 
-<code>mkdir -p ~/.git/hooks</code>
-<code>cp -r .git/hooks/prepare-commit-msg ~/.git/hooks</code>
-<code>git config --global core.hooksPath '~/.git/hooks'</code>
+```
+mkdir -p ~/.git/hooks
+cp -r .git/hooks/prepare-commit-msg ~/.git/hooks
+git config --global core.hooksPath '~/.git/hooks\'
+```
