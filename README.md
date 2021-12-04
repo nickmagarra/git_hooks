@@ -12,7 +12,7 @@ What hook do:
 
 <code>{Branch name} {Type of commit by trigger} {new version number of commit} {Commit message by user input}.</code>
 
-- If no trigger detected, hook just adds version numder to user's text
+- If no trigger detected, hook adds [Draft] prefix and version numder in front of user's text
 
 # How to use
 - Copy file to **.git/hooks/** folder inside local cloned repo
@@ -24,3 +24,5 @@ For release: <code>git commit -m "rr Some release notes"</code>
 For update: <code>git commit -m "uu Some update notes"</code>
 
 For fix: <code>git commit -m "ff Some update notes"</code>
+
+- **Tip**: you just can print trigger (exampe - ff) and commit - it will become nice [Branch name] [Type of commit by trigger] [new version number of commit] commit message
