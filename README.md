@@ -1,6 +1,6 @@
 # Usefull hooks for Git
 
-![Nice and clear commits!](media/git_hook_commit_example.png)
+![Nice and clear commits!](media/commit_example.png)
 
 ## prepare-commit-msg
 This hook is a Python script. Libraries used: **re**, **sys**, **subprocess**
