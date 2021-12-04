@@ -26,3 +26,12 @@ For update: <code>git commit -m "uu Some update notes"</code>
 For fix: <code>git commit -m "ff Some update notes"</code>
 
 - **Tip**: you just can print trigger (exampe - ff) and commit - it will become nice [Branch name] [Type of commit by trigger] [new version number of commit] commit message
+
+## Howto
+
+To use hooks, place it to **.git/hooks** directory inside your local cloned repo.
+
+### Note
+On Windows you can receive an error: <code>error: cannot spawn .git/hooks/prepare-commit-msg: No such file or directory</code>
+
+To fix that configure Git to lookup hooks inside repo folder: <code>git config --global core.hooksPath '.git/hooks</code>
