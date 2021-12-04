@@ -9,7 +9,7 @@ What hook do:
 - Detect current branch name and last commit message from remote
 - Lookup version number in last commit message
 - Lookups keywords triggers in new commit message (**rr** - release, **uu** - update, **ff** - fix)
-- Generates incremented version number based on detected triggers (version based on template: **X.Y.Z** where **X** for release, **Y** for update, **Z** for fix)
+- Generates incremented version number based on detected triggers (version based on template: **X.Y.Z** where **X** for release, **Y** for update, **Z** for fix). In drafts 4-th number will be added
 - If trigger detected, hook generates brand new commit message with template:  
 
 ```{Branch name} {Type of commit by trigger} {new version number of commit} {Commit message by user input}```
