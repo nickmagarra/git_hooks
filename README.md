@@ -23,7 +23,7 @@ What hook do:
 
 **For release:** ```git commit -m "rr Some release notes"```  
 **For update:** ```git commit -m "uu Some update notes"```  
-**For fix:** ```git commit -m "ff Some update notes"```  
+**For fix:** ```git commit -m "ff Some fix notes"```  
 
 - **Tip**: you just can print trigger (exampe - ff) and commit - it will looks like: [Branch name] [Type of commit by trigger] [new version number of commit]
 
