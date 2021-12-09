@@ -9,6 +9,11 @@ commit_msg_filepath = sys.argv[1]
 branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).decode("utf-8").strip()
 last_commit = check_output(["git", "log", "-1", f"origin/{branch}","--pretty='%s'"]).decode("utf-8").strip().replace("'","")
 
+last_commit_strip = re.findall(r'\[.*\]', last_commit)
+
+for item in last_commit_strip:
+    last_commit = last_commit.replace(item, '')
+
 matches = re.findall(r"\d{1,9}", last_commit)
 
 if len(matches) > 0:
