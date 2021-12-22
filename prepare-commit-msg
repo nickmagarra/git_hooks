@@ -32,16 +32,21 @@ with open(commit_msg_filepath, "r+") as f:
 
     if commit_msg.startswith("rr", 0):
         new_version = f'{str(release + 1)}.0.0'
-        new_message = (f'[{branch}][Release] {new_version} {commit_msg.replace("rr", "", 1).strip()}')
+        new_message = (f'[{branch}](Release) {new_version} {commit_msg.replace("rr", "", 1).strip()}')
     elif commit_msg.startswith("uu", 0):
         new_version = f'{str(release)}.{str(update + 1)}.0'
-        new_message = (f'[{branch}][Update] {new_version} {commit_msg.replace("uu", "", 1).strip()}')
+        new_message = (f'[{branch}](Update) {new_version} {commit_msg.replace("uu", "", 1).strip()}')
     elif commit_msg.startswith("ff", 0):
         new_version = f'{str(release)}.{str(update)}.{str(fix + 1)}'
-        new_message = (f'[{branch}][Fix] {new_version} {commit_msg.replace("ff", "", 1).strip()}')
+        new_message = (f'[{branch}](Fix) {new_version} {commit_msg.replace("ff", "", 1).strip()}')
+    elif commit_msg.startswith("init", 0):
+        new_version = '1.0.0'
+        new_message = (f'(Init) {new_version} {commit_msg.replace("init", "", 1).strip()}')
     else:
+        if commit_msg.startswith("dd", 0):
+            commit_msg = commit_msg.replace("dd", "", 1)
         new_version = f'{str(release)}.{str(update)}.{str(fix)}.{(str(draft + 1))}'
-        new_message = (f'[Draft] {new_version} {commit_msg.strip()} ')
+        new_message = (f'(Draft) {new_version} {commit_msg.strip()}')
 
     if len(new_message) > 0:
         f.truncate(0)
