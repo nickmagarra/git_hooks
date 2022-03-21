@@ -47,8 +47,8 @@ Do next steps:
 1. Copy files from "windows" repo folder somewhere you like
 2. Make files executable (fore example using Linux-like syntax in GitBash):  
 ```chmod +x prepare-commit-msg && chmod +x prepare-commit-msg.py```  
-3. Set up Git global hook folder where you've put hook files (for example c:\\users\\your_user\\.git_hooks\\):  
-```git config --global core.hooksPath c:\users\your_user\.git_hooks\```
+3. Set up Git global hook folder where you've put hook files (for example c:\\users\\your_user_name\\.git_hooks\\):  
+```git config --global core.hooksPath c:\users\your_user_name\.git_hooks\```
 
 ### Tip
 On Windows you can receive an error: ***error: cannot spawn .git/hooks/prepare-commit-msg: No such file or directory***  
