@@ -8,13 +8,13 @@ This hook is a Python script. Libraries used: **re**, **sys**, **subprocess**
 What hook do:
 - Detect current branch name and last commit message from remote
 - Lookup version number in last commit message
-- Lookups keywords triggers in new commit message (**rr** - release, **uu** - update, **ff** - fix)
-- Generates incremented version number based on detected triggers (version based on template: **X.Y.Z** where **X** for release, **Y** for update, **Z** for fix). In drafts 4-th number will be added
+- Lookups keywords triggers in new commit message (**rr** - release, **uu** - update, **ff** - fix, **dd** - draft)
+- Generates incremented version number based on detected triggers (version based on template: **W.X.Y.Z** where **W** for release, **X** for update, **Y** for fix, **Z** for draft).
 - If trigger detected, hook generates brand new commit message with template:  
 
 ```[Branch name][Type of commit by trigger] [New version number of commit] [User commit message]```
 
-- If no trigger detected, hook adds [Draft] prefix and version numder in front of user's text
+- If no trigger detected, hook adds (Draft) prefix and version numder in front of user's text
 
 # How to use
 - Copy file to **.git/hooks/** folder inside local cloned repo
@@ -24,6 +24,7 @@ What hook do:
 **For release:** ```git commit -m "rr Some release notes"```  
 **For update:** ```git commit -m "uu Some update notes"```  
 **For fix:** ```git commit -m "ff Some fix notes"```  
+**For draft:** ```git commit -m "dd Some fix notes"```
 
 - **Tip**: you just can print trigger (exampe - ff) and commit - it will looks like: [Branch name] [Type of commit by trigger] [new version number of commit]
 

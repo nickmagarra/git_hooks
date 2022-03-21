@@ -13,7 +13,7 @@ except Exception as e:
 branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).decode("utf-8").strip()
 last_commit = check_output(["git", "log", "-1", f"origin/{branch}","--pretty='%s'"]).decode("utf-8").strip().replace("'","")
 
-matches = re.findall(r"\d\..+", last_commit)
+matches = re.findall(r"\d\..+\d", last_commit)
 
 if len(matches) > 0:
     version = matches[0].split('.')
@@ -49,7 +49,7 @@ with open(commit_msg_filepath, "r+") as f:
         new_message = (f'(Initial) {new_version}')
     else:
         new_version = f'{str(release)}.{str(update)}.{str(fix)}.{str(draft + 1)}'
-        new_message = (f'(Draft) {new_version} {commit_msg.replace("dd", "", 1).replace("dd", "", 1).strip()} ')
+        new_message = (f'(Draft) {new_version} {commit_msg.replace("dd", "", 1).strip()} ')
 
     if len(new_message) > 0:
         f.truncate(0)

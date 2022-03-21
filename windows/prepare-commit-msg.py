@@ -11,7 +11,7 @@ except Exception as e:
 branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).decode("utf-8").strip()
 last_commit = check_output(["git", "log", "-1", f"origin/{branch}","--pretty='%s'"]).decode("utf-8").strip().replace("'","")
 
-matches = re.findall(r"\d\..+", last_commit)
+matches = re.findall(r"\d\..+\d", last_commit)
 
 if len(matches) > 0:
     version = matches[0].split('.')
