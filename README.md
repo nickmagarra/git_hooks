@@ -1,4 +1,4 @@
-# Usefull hooks for Git
+# Usefull hook for Git
 
 ![Nice and clear commits!](media/commit_example.png)
 
@@ -33,11 +33,18 @@ What hook do:
 To use hooks, place it to **.git/hooks** directory inside your local cloned repo. Hook will be accessible for current project only.  
 To use hook globally place it to common folder and set up Git:
 
-```
+```bash
 mkdir ~/.git_hooks
 cp prepare-commit-msg ~/.git_hooks
 git config --global core.hooksPath ~/.git_hooks
 ```
+**Tip**: On MacOS you can get error "fatal: cannot run ~/.git_hooks/prepare-commit-msg: No such file or directory". First of all verify Python binary location:
+
+```bash
+which python3
+```
+
+and fix it in shebang of script file. If not - use Windows way: create bash script to run python script
 
 ## On Windows
 On Windows systems some trick must be used, because Git couldn't run Python interpreter correctly: create Shell script to run Python script.  
@@ -47,9 +54,13 @@ Do next steps:
 
 1. Copy files from "windows" repo folder somewhere you like
 2. Make files executable (fore example using Linux-like syntax in GitBash):  
-```chmod +x prepare-commit-msg && chmod +x prepare-commit-msg.py```  
+```bash
+chmod +x prepare-commit-msg && chmod +x prepare-commit-msg.py
+```  
 3. Set up Git global hook folder where you've put hook files (for example c:\\users\\your_user_name\\.git_hooks\\):  
-```git config --global core.hooksPath c:\users\your_user_name\.git_hooks\```
+```bash
+git config --global core.hooksPath c:\users\your_user_name\.git_hooks\
+```
 
 ### Tip
 On Windows you can receive an error: ***error: cannot spawn .git/hooks/prepare-commit-msg: No such file or directory***  
