@@ -28,10 +28,12 @@ What hook do:
 
 - **Tip**: you just can print trigger (exampe - ff) and commit - it will looks like: [Branch name] [Type of commit by trigger] [new version number of commit]
 
-## Howto
+## Installation
 
 To use hooks, place it to **.git/hooks** directory inside your local cloned repo. Hook will be accessible for current project only.  
 To use hook globally place it to common folder and set up Git:
+
+### On Linux
 
 ```bash
 mkdir ~/.git_hooks
@@ -47,7 +49,7 @@ which python3
 
 and fix it in shebang of script file. If not - use Windows way: create bash script to run python script
 
-## On Windows
+### On Windows
 On Windows systems some trick must be used, because Git couldn't run Python interpreter correctly: create Shell script to run Python script.  
 In "windows" repo folder you can find prepared files.
 
