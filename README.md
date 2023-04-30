@@ -35,7 +35,8 @@ To use hook globally place it to common folder and set up Git:
 
 ```bash
 mkdir ~/.git_hooks
-cp prepare-commit-msg ~/.git_hooks
+cp linux/* ~/.git_hooks
+chmod +x ~/.git_hooks/prepare-commit-msg
 git config --global core.hooksPath ~/.git_hooks
 ```
 **Tip**: On MacOS you can get error "fatal: cannot run ~/.git_hooks/prepare-commit-msg: No such file or directory". First of all verify Python binary location:
