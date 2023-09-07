@@ -35,7 +35,13 @@ if __name__ == "__main__":
         sys.exit(1)
 
     branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).decode("utf-8").strip()
-    last_commit = check_output(["git", "log", "-1", f"origin/{branch}", "--pretty='%s'"]).decode("utf-8").strip().replace("'", "")
+
+    try:
+        last_commit = check_output(["git", "log", "-1", f"origin/{branch}", "--pretty='%s'"]).decode("utf-8").strip().replace("'", "")
+    except Exception as ex:
+        print(f"No commits found yet. Error: {repr(ex)}")
+        last_commit = ""
+
     # DEBUG
     print(f"LAST Commit Message: {last_commit}")
 
