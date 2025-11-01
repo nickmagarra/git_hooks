@@ -11,7 +11,10 @@ except Exception as e:
     sys.exit(1)
 
 branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).decode("utf-8").strip()
-last_commit = check_output(["git", "log", "-1", f"origin/{branch}", "--pretty='%s'"]).decode("utf-8").strip().replace("'", "")
+try:
+    last_commit = check_output(["git", "log", "-1", f"origin/{branch}", "--pretty='%s'"]).decode("utf-8").strip().replace("'", "")
+except:
+    last_commit = ""
 
 matches = re.findall(r"(?:\d+\.)+\d+", last_commit)
 
@@ -55,3 +58,4 @@ with open(commit_msg_filepath, "r+") as f:
         f.truncate(0)
         f.seek(0)
         f.write(new_message.strip())
+
