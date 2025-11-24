@@ -39,7 +39,8 @@ To use hook **globally** place it to common folder and set up Git:
 
 ```bash
 mkdir ~/.git_hooks
-cp prepare-commit-msg.py ~/.git_hooks
+cat prepare-commit-msg.py > ~/.git_hooks/prepare-commit-msg
+chmod +x ~/.git_hooks/prepare-commit-msg
 git config --global core.hooksPath ~/.git_hooks
 ```
 
@@ -70,3 +71,4 @@ On Windows you can receive an error: ***fatal: cannot run /home/nick/.git_hooks/
 - Verify extension (must be `.py` )
 - Verify shebang (must be `which python3` )
 - Verify permission flags ( `chmod +x` )
+
